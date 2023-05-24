@@ -1,0 +1,58 @@
+.card {
+  max-width: 250px;
+  margin-bottom: 25px;
+  cursor: pointer;
+  border-radius: 10px;
+  --mdc-elevated-card-container-color: none;
+
+  &:hover {
+    transform: scale3d(1.1, 1.1, 1.1);
+    transition: 0.8s;
+    box-shadow: 2px 2px 2px 2px #201835a6;
+    border-color: none;
+  }
+}
+
+.cardList {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3%;
+  padding: 20px;
+}
+
+.back {
+  height: 50px;
+  position: fixed;
+  left: 10%;
+  top: 60%;
+  cursor: pointer;
+  font-size: 40px;
+  font-weight: 700;
+  color: #FFF765;
+}
+
+.foward {
+  height: 50px;
+  position: fixed;
+  width: 35px;
+  right: 10%;
+  top: 60%;
+  cursor: pointer;
+  font-size: 40px;
+  font-weight: 700;
+  color: #FFF765;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: center;
+}
+.content, .content:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5% 0%;
+  background: #201835;
+  color: #FFF765;
+}

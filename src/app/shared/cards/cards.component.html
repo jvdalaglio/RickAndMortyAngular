@@ -1,0 +1,13 @@
+<section class="cardList">
+    <mat-icon class="back" (click)="previousPage()">arrow_back_ios</mat-icon>
+  <mat-card class="card" *ngFor="let character of characters">
+    <img mat-card-image src="{{character.image}}">
+    <mat-card-content class="content">
+      <div class="info">
+        <h2>Name: {{character.name}}</h2>
+        <p>Specie: {{character.species}}</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+    <mat-icon class="foward" (click)="nextPage()">arrow_forward_ios</mat-icon>
+</section>

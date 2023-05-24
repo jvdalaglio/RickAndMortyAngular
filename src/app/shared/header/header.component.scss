@@ -1,0 +1,32 @@
+:host {
+  .header {
+    background: url('/assets/background-header.jfif');
+    height: 12vh;
+  }
+
+  .title {
+    position: absolute;
+    top: 0.3em;
+    width: 100%;
+    text-align: center;
+    font-family: 'Get Schwifty';
+    font-size: 3em;
+    color: #08BAE3;
+    z-index: 50;
+    -webkit-text-stroke: 1px rgba(0,0,0,0.5);
+
+    span {
+      font-size: 0.5em;
+    }
+  }
+
+  .title.middle {
+    -webkit-text-stroke: 0.1em #FFF765;
+    z-index: 49;
+  }
+
+  .title.bottom {
+    -webkit-text-stroke: 0.4em black;
+    z-index: 48;
+  }
+}
