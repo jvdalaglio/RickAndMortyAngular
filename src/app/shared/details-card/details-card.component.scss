@@ -1,0 +1,38 @@
+:host {
+  .card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5%;
+    border-radius: 10px;
+    min-width: 70vw;
+    min-height: 55vh;
+    background-color: #37343b6c;
+    padding-left: 2%;
+  }
+
+  img {
+    width: 25vw;
+    height: 50vh;
+    border-radius: 20px;
+  }
+
+  .info {
+    height: 50vh;
+    width: 18vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: 1.5em;
+    font-weight: 500;
+    color: #FFF765;
+    margin-bottom: 3%;
+    padding-top: 5%;
+
+    p{
+      margin-bottom: 25px;
+    }
+  }
+}

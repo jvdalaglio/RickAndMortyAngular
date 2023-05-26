@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../core/services/api.service';
 import { SharedModule } from '../shared.module';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,5 +12,13 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule]
 })
 export class HeaderComponent {
+
+  constructor(
+    private router: Router
+  ) {}
+
+  navigateHome() {
+    this.router.navigate([''])
+  }
 
 }

@@ -19,6 +19,7 @@
   flex-wrap: wrap;
   gap: 3%;
   padding: 20px;
+  padding-top: 0;
 }
 
 .back {
@@ -55,4 +56,55 @@
   padding: 5% 0%;
   background: #201835;
   color: #FFF765;
+}
+
+.filterForm {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1%;
+}
+
+.formFields {
+  width: 45vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2%;
+  padding-top: 10px;
+}
+
+.field {
+  width: 75%;
+}
+
+.searchImg {
+  width: 75px;
+}
+
+button {
+  width: 57px;
+  height: 57px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  border: none;
+  color: white;
+  background-color: transparent;
+}
+
+.mat-icon .notranslate .icon .material-icons .mat-ligature-font .mat-icon-no-color {
+  -webkit-user-select: none;
+  user-select: none;
+  background-repeat: no-repeat;
+  display: inline-block;
+  fill: currentColor;
+  overflow: hidden;
+  font-size: 70px;
+  margin-bottom: 8px;
+}
+
+.images {
+  display: flex;
+  align-items: center;
 }
