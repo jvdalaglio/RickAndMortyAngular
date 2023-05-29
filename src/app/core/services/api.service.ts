@@ -27,8 +27,11 @@ export class ApiService {
     return this.http.get(this.locationUrl)
   }
 
-  filterCharacters(name: string, status: string, species: string) {
+  filterCharacters(name: string, status: string, species: string, page: number) {
     const queryParams = [];
+    if (page) {
+      queryParams.push(`page=${page}`);
+    }
     if (name) {
       queryParams.push(`name=${name}`);
     }
@@ -38,7 +41,7 @@ export class ApiService {
     if (species) {
       queryParams.push(`species=${species}`);
     }
-    const url = this.apiFilter + '?' + queryParams.join('&');
+    const url = this.apiFilter + `?` + queryParams.join('&');
 
     return this.http.get(url);
   }

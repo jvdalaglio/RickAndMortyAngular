@@ -18,7 +18,11 @@ export class HeaderComponent {
   ) {}
 
   navigateHome() {
-    this.router.navigate([''])
+    if(this.router.url != '/') {
+      this.router.navigate([''])
+    } else {
+      location.reload()
+    }
   }
 
 }

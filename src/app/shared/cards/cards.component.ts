@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule, ReactiveFormsModule,FormControl,} from '@angular/forms';
-import {MatInputModule} from '@angular/material/input'; 
+import {MatInputModule} from '@angular/material/input';
 
 @Component({
   selector: 'app-cards',
@@ -46,15 +46,25 @@ export class CardsComponent {
     })
   }
 
-  nextPage() {
-    this.page++
-    this.getCharacter()
+  nextPage(name: string) {
+    if(name != "" || this.selectedStatus != undefined || this.selectedSpecies != undefined) {
+      this.page++
+      this.filterCharacters(name)
+    } else {
+      this.page++
+      this.getCharacter()
+    }
   }
 
-  previousPage() {
+  previousPage(name: string) {
     if (this.page > 1) {
-      this.page--
-      this.getCharacter()
+      if(name != "" || this.selectedStatus != undefined || this.selectedSpecies != undefined) {
+        this.page--
+        this.filterCharacters(name)
+      } else {
+        this.page--
+        this.getCharacter()
+      }
     }
   }
 
@@ -71,15 +81,15 @@ export class CardsComponent {
   }
 
   filterCharacters(name: string) {
-    this.apiService.filterCharacters(name, this.selectedStatus, this.selectedSpecies)
-    .subscribe(
-      (data :any ) => {
+    this.apiService.filterCharacters(name, this.selectedStatus, this.selectedSpecies, this.page)
+    .subscribe({
+      next: (data :any ) => {
         this.characters = data.results;
-        },
-        error => {
-          // Lidar com erros da solicitação aqui
-          console.error(error);
-        }
-    );
+        console.log(this.characters)
+      },
+      error: error => {
+        console.error(error);
+      }
+    });
   }
 }
