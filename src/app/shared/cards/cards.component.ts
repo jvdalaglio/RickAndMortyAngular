@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { ApiService } from 'src/app/core/services/api.service';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
@@ -7,7 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {FormsModule, ReactiveFormsModule,FormControl,} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule,} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 
 @Component({
@@ -33,7 +33,7 @@ export class CardsComponent {
   public selectedSpecies: any;
   public status: any[] = ['Alive' ,'Dead' , 'Unknown']
   public species = ['Alien','Animal','Cronenberg', 'Disease', 'Human', 'Humanoid', 'Mythological Creature' ,'Poopybutthole' ,'Robot' , 'Unknown']
-
+  public isFilter: boolean = true;
 
   ngOnInit(): void {
     this.getCharacter();
@@ -47,22 +47,20 @@ export class CardsComponent {
   }
 
   nextPage(name: string) {
+    this.page++
     if(name != "" || this.selectedStatus != undefined || this.selectedSpecies != undefined) {
-      this.page++
       this.filterCharacters(name)
     } else {
-      this.page++
       this.getCharacter()
     }
   }
 
   previousPage(name: string) {
     if (this.page > 1) {
+      this.page--
       if(name != "" || this.selectedStatus != undefined || this.selectedSpecies != undefined) {
-        this.page--
         this.filterCharacters(name)
       } else {
-        this.page--
         this.getCharacter()
       }
     }
@@ -80,7 +78,10 @@ export class CardsComponent {
     })
   }
 
-  filterCharacters(name: string) {
+  filterCharacters(name: string, filter?: boolean) {
+    if(filter) {
+      this.page = 1
+    }
     this.apiService.filterCharacters(name, this.selectedStatus, this.selectedSpecies, this.page)
     .subscribe({
       next: (data :any ) => {

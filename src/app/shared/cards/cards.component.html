@@ -1,8 +1,8 @@
 <form class="filterForm">
   <div class="images">
-    <img class="searchImg" src="../../../assets/search-Rick.png" alt="">
-    <img class="searchImg" src="../../../assets/search-morty.png" alt="">
-    <img class="searchImg" src="../../../assets/search-summer.png" alt="">
+    <img class="searchImg" src="../../../assets/search-Rick.png" (click)="filterCharacters(nameInput.value = 'Rick', isFilter)">
+    <img class="searchImg" src="../../../assets/search-morty.png" (click)="filterCharacters(nameInput.value = 'Morty', isFilter)">
+    <img class="searchImg" src="../../../assets/search-summer.png" (click)="filterCharacters(nameInput.value = 'Summer', isFilter)">
   </div>
   <div class="formFields">
     <mat-form-field class="field">
@@ -25,11 +25,11 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <button><mat-icon class="icon" (click)="filterCharacters(nameInput.value)">search</mat-icon></button>
+    <button><mat-icon class="icon" (click)="filterCharacters(nameInput.value, isFilter)">search</mat-icon></button>
   </div>
   <div class="images">
-    <img class="searchImg" src="../../../assets/search-Jerry.png" alt="">
-    <img class="searchImg" src="../../../assets/search-Beth.png" alt="">
+    <img class="searchImg" src="../../../assets/search-Jerry.png" (click)="filterCharacters(nameInput.value = 'Jerry', isFilter)">
+    <img class="searchImg" src="../../../assets/search-Beth.png" (click)="filterCharacters(nameInput.value = 'Beth', isFilter)">
   </div>
 </form>
 
